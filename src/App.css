@@ -1,0 +1,21 @@
+@font-face {
+    font-family: Epilogue;
+    src: url("./assets/fonts/epilogue-2-cufonfonts/Epilogue-Regular.ttf");
+}
+@font-face {
+    font-family: Epilogue-ExtraBold;
+    src: url("./assets/fonts/epilogue-2-cufonfonts/Epilogue-ExtraBold.ttf");
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.App{
+    position: relative;
+}
+button{
+outline: none;
+border: 0;
+background: transparent;
+}

@@ -1,11 +1,13 @@
 import React from "react";
 import { CardWrapper,CardInner} from "./style";
 
-const Card = () =>{
+const Card = ({menuItem}) =>{
     return(
         <CardWrapper>
-             <CardInner>
-            </CardInner>
+             {menuItem.map((Item)=>(
+                <CardInner key={Item.id} src={Item.img}>
+                </CardInner>
+             ))}
         </CardWrapper>
     )
 }
