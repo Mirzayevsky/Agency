@@ -1,11 +1,12 @@
 import { Container, FilterBtn } from "./styles";
 
-function Button({button, filter}) {
+function Button({state, filter}) {
+    const {filters} = state
     return (
         <Container>
             {
-                button.map((cat, i)=>{
-                    return <FilterBtn type="button" onClick={()=> filter(cat)}>{cat}</FilterBtn>
+                filters.map((Item)=>{
+                    return <FilterBtn key={Item.id} type="button" onClick={()=> filter(Item.name)}>{Item.name}</FilterBtn>
                 })
             }
         </Container>

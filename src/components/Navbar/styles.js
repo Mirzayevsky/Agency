@@ -1,7 +1,8 @@
 import styled from "styled-components";
 export const Navigationbar = styled.div`
 background-color: #28293E;
-padding: 20px 0;
+padding: 10px 0;
+padding-top: 30px;
 `;
 
 export const Container = styled.div`

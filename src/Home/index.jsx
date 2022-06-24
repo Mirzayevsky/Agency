@@ -1,27 +1,24 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {Header, HomeWraper, Title,Text, TextBox, CardSection } from "./styles";
 import Card from "../components/card/index"
-import data  from "../data";
 import Button from "../components/filterButton/index"
+import { Context } from "../context/context";
 
 // const allCategories = ['All', ...new Set(data.map(item => item.category))];
-const allCategories = ['all','design','illustration','motion']
+// const allCategories = ['all','design','branding','illustration','motion']
 
 const Home = () => {
-    const [menuItem, setMenuItem] = useState(data);
-    const [buttons, setButtons] = useState(allCategories);
-    console.log(menuItem)
-
-    const filter = (button) => {
-
-      if(button.toLowerCase() === 'all'){
-        setMenuItem(data);
-        return;
-      }
-      const filteredData = data.filter(item => item.category.toLowerCase().trim() ===  button.toLowerCase().trim());
-      setMenuItem(filteredData)
+    const {state,dispatch}  = useContext(Context)
+    // const [menuItem, setMenuItem] = useState(state);
+    // const [buttons, setButtons] = useState(allCategories);
+  
+    const filter = (Item) => {
+      dispatch({
+        type:"FILTER_PICTURE",
+        payload:Item
+      })
+     
     }
-
     return(
         <HomeWraper>
                 <Header>
@@ -31,10 +28,9 @@ const Home = () => {
                   </TextBox>
                 </Header>
                 <CardSection>
-                 <Button button={buttons} filter={filter} />
-                 <Card menuItem={menuItem} />
+                 <Button state={state} filter={filter} />
+                 <Card/>
                 </CardSection>
-
         </HomeWraper>
     )
 }
